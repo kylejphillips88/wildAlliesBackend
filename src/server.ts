@@ -1,5 +1,4 @@
 import { Client } from "@notionhq/client";
-import cors from "cors";
 import "dotenv/config";
 import createHttpError, { isHttpError } from "http-errors";
 import express, { Request, Response, NextFunction } from "express";
@@ -13,11 +12,6 @@ const port = env.PORT;
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }));
-
-app.use(cors({
-    credentials: true,
-        origin: "https://wildallies.com.au",
-}));
 
 export const notion = new Client({
     auth: process.env.NOTION_KEY, 
